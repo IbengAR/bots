@@ -8,7 +8,7 @@ const Readline = require('readline')
 const yargs = require('yargs/yargs')
 const rl = Readline.createInterface(process.stdin, process.stdout)
 
-CFonts.say('Jembot-MD\nMulti-device ', {
+CFonts.say('iBeng-MD\nMulti-device ', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']
