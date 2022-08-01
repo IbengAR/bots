@@ -1,6 +1,6 @@
 {
-    "name": "Jembot-MD",
-    "version": "1.0.0",
+    "name": "iBeng-MD",
+    "version": "1.1.0",
     "description": "Simple Bot WhatsApp with Baileys Multi Device",
     "depecrated": false,
     "main": "index.js",
