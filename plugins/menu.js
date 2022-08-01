@@ -31,7 +31,7 @@ const defaultMenu = {
 ╭─❑「 %me 」❑──
 │ Version: %version
 │ Library: Baileys-MD
-│ Mode: ${global.opts['self'] ? 'Self' : 'publik'}
+│ Mode: ${global.opts['self'] ? 'Self' : 'priv8'}
 │ Runtime: %uptime
 ╰❑
 ╭─❑ 「 INFO USER 」 ❑──
@@ -130,8 +130,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
                 .trim()
             }).join('\n')
           }),
@@ -166,8 +164,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            hydratedFooterText: wm,
            hydratedButtons: [{
              urlButton: {
-               displayText: 'My youtube',
-               url: 'https://youtube.com/channel/UCB157jomCne961WzYHpG4gg'
+               displayText: 'Facebook',
+               url: 'https://facebook.com/ribeng2'
              }
 
            },
