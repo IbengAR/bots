@@ -1,5 +1,5 @@
 //made by https://github.com/Paquito1923
-const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys')
+const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@danielteodoro/baileys-md')
 const { servers, yta, ytv } = require('../lib/y2mate')
 let fs = require('fs')
 let yts = require('yt-search')
@@ -44,14 +44,8 @@ ${vid.url}
            locationMessage: { 
            jpegThumbnail: await (await fetch(thumb)).buffer() }, 
            hydratedFooterText: wm,
-           hydratedButtons: [{
-             urlButton: {
-               displayText: 'DONASI',
-               url: 'https://saweria.co/ilmanhdyt',
-             }
-
-           },
-               {
+           hydratedButtons: [
+             {
              quickReplyButton: {
                displayText: 'video',
                id: `.ytmp4 ${vid.url}`,
