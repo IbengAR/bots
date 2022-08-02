@@ -13,7 +13,7 @@ let tags = {
   'vote': 'MENU VOTE',
   'owner': 'MENU OWNER',
   'fun': 'MENU LOLI',
-  'advanced': 'MENU SIPALING',
+  'advanced': 'MENU BEBAS',
   'sticker': 'MENU STICKER',
   'bucin': 'MENU BUCIN',
   'github': 'MENU GITHUB',
@@ -27,7 +27,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭────ꕥ 「 %me 」ꕥ─
+╭ꕥ 「 %me 」ꕥ─
 │✾ Version: %version
 │✾ Mode: ${global.opts['self'] ? 'Self' : 'Private'}
 │✾ Runtime: %uptime
@@ -41,9 +41,7 @@ const defaultMenu = {
 │ ✾ Level: %level
 │ ✾ Role: %role
 ╰❑
-╭─❑ 「 INFORMASI 」 ❑──
-│ FITURES UPDATE NEW 
-╰❑
+
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
   body: '│ • %cmd %islimit %isPremium',
