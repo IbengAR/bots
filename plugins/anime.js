@@ -18,7 +18,7 @@ const sendMsg = await conn.prepareMessageFromContent(m.chat,{buttonsMessage},{ q
 
 conn.relayWAMessage(sendMsg)
 }
-handler.command = /^(loli)$/i
+handler.command = /^(lolinew)$/i
 handler.tags = ['lolinew']
 handler.help = ['anime']
 module.exports = handler
