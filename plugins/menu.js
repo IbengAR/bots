@@ -22,6 +22,7 @@ let tags = {
   'downloader': 'DOWNLOADER',
   'nsfw': 'MENU NSFW',
   'tools': 'MENU TOOLS',
+  'advanced': 'ADVANCED',
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
@@ -29,6 +30,7 @@ const defaultMenu = {
   before: `
 ╭─❑「 %me 」❑──
 │ Version: %version
+│ Library: Baileys-MD
 │ Mode: ${global.opts['self'] ? 'Self' : 'priv8'}
 │ Runtime: %uptime
 ╰❑
@@ -40,6 +42,11 @@ const defaultMenu = {
 │ Exp: %totalexp
 │ Level: %level
 │ Role: %role
+╰❑
+╭─❑ 「 INFORMASI 」 ❑──
+│ Bot ini masih tahap beta
+│ apabila ada bug/eror harap
+│ lapor ke owner
 ╰❑
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
@@ -115,7 +122,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/6281257172080${global.conn.user.jid.split`@`[0]}`) + defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -166,21 +173,21 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            },
              {
              quickReplyButton: {
-               displayText: '',
+               displayText: 'Owner',
                id: '.owner',
              }
 
            },
                {
              quickReplyButton: {
-               displayText: '',
+               displayText: 'Donasi',
                id: '.donasi',
              }
 
            },
            {
              quickReplyButton: {
-               displayText: '',
+               displayText: 'Credits',
                id: '.tqto',
              }
            }]
