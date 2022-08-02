@@ -23,23 +23,23 @@ let tags = {
   'nsfw': 'MENU NSFW',
   'tools': 'MENU TOOLS',
   'quotes': 'MENU QUOTES',
-  'info': 'MENU INFO',
+  
 }
 const defaultMenu = {
   before: `
-╭─❑「 %me 」❑──
-│ Version: %version
-│ Mode: ${global.opts['self'] ? 'Self' : 'priv8'}
-│ Runtime: %uptime
+╭────ꕥ %me ꕥ────
+│✾ Version: %version
+│✾ Mode: ${global.opts['self'] ? 'Self' : 'publik'}
+│✾ Runtime: %uptime
 ╰❑
 ╭─❑ 「 INFO USER 」 ❑──
-│ Name: %name
-│ Status: ---
-│ Limit: %limit
-│ Money: %money
-│ Exp: %totalexp
-│ Level: %level
-│ Role: %role
+│ ✾ Name: %name
+│ ✾ Status: ${premium ? 'Premium' : 'Free'}
+│ ✾ Limit: %limit
+│ ✾ Money: %money
+│ ✾ Exp: %totalexp
+│ ✾ Level: %level
+│ ✾ Role: %role
 ╰❑
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
@@ -167,7 +167,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
              {
              quickReplyButton: {
                displayText: '',
-               id: '.owner',
+               id: '',
              }
 
            },
