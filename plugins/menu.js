@@ -12,7 +12,8 @@ let tags = {
   'absen': 'MENU ABSEN',
   'vote': 'MENU VOTE',
   'owner': 'MENU OWNER',
-  'fun': 'MENU FUN',
+  'fun': 'MENU LOLI',
+  'advanced': 'MENU SIPALING',
   'sticker': 'MENU STICKER',
   'bucin': 'MENU BUCIN',
   'github': 'MENU GITHUB',
@@ -20,14 +21,13 @@ let tags = {
   'islam': 'MENU ISLAM',
   'anime': 'MENU ANIME',
   'downloader': 'DOWNLOADER',
-  'nsfw': 'MENU DEWASA',
   'tools': 'MENU TOOLS',
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
 const defaultMenu = {
   before: `
-╭────ꕥ 「 %me 」ꕥ────
+╭────ꕥ 「 %me 」ꕥ─
 │✾ Version: %version
 │✾ Mode: ${global.opts['self'] ? 'Self' : 'Private'}
 │✾ Runtime: %uptime
