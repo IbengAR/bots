@@ -1,14 +1,24 @@
-let fetch = require('node-fetch')
-let handler = async(m, { conn, text }) => {
-  let res = await (await fetch('https://katanime.vercel.app/api/getrandom?limit=1'))
-  if (!res.ok) throw await res.text()
-  let json = await res.json()
-  if(!json.result[0]) throw json
-  let { indo, character, anime } = json.result[0]
-m.reply(`${indo}\n\n${character}\n${anime}`)
+var {WAMessageProto} = require('@adiwajshing/baileys')
+
+let handler = async (m, { conn, text }) => {
+heum = await require('node-fetch')('https://raw.githubusercontent.com/Caliph91/txt/main/loli.json').then(v => v.json())
+let url = heum[Math.floor(Math.random() * heum.length)]
+ let buttons = [
+  {buttonId: '/loli', buttonText: {displayText: 'Get Loli'}, type: 1}
+]
+const buttonsMessage = {
+    contentText: `
+Random Loli
+`.trim(),    footerText: 'wa.me/6281257172080',
+    buttons: buttons,
+  imageMessage: await conn.toMSG({ url }, 'imageMessage'),
+    headerType: 'IMAGE'
 }
-handler.help = ['katanime']
+const sendMsg = await conn.prepareMessageFromContent(m.chat,{buttonsMessage},{ quoted: m})
+
+conn.relayWAMessage(sendMsg)
+}
+handler.command = /^(loli)$/i
 handler.tags = ['anime']
-handler.command = /^(katanime|kataanime)$/i
-handler.limit = false
+handler.help = ['anime']
 module.exports = handler
