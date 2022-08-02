@@ -1,13 +1,13 @@
-const { proto, generateWAMessage,  areJidsSameUser } = require('@danielteodoro/baileys-md')
+// thanks to bochilgaming
+const { MessageType, newMessagesDB } = require("@adiwajshing/baileys")
 //const util = require('util')
 
 module.exports = {
     async all(m, chatUpdate) {
         if (m.isBaileys) return
-        if (!m.message) return 
-        if (!(m.message.buttonsResponseMessage || m.message.templateButtonReplyMessage)) return
-        let id = m.message.buttonsResponseMessage?.selectedButtonId || m.message.templateButtonReplyMessage?.selectedId
-        let text = m.message.buttonsResponseMessage?.selectedDisplayText || m.message.templateButtonReplyMessage?.selectedDisplayText
+        if (!m.message) return // selectedButtonId
+        if (m.mtype !== 'buttonsResponseMessage' && m.type !== 1) return
+        let id = m.msg.selectedButtonId
         let isIdMessage = false, usedPrefix
         for (let name in global.plugins) {
             let plugin = global.plugins[name]
@@ -51,19 +51,22 @@ module.exports = {
             }
 
         }
-        let messages = await generateWAMessage(m.chat, { text: isIdMessage ? id : text, mentions: m.mentionedJid }, {
-            userJid: this.user.id,
-            quoted: m.quoted && m.quoted.fakeObj
-        })
-        messages.key.fromMe = areJidsSameUser(m.sender, this.user.id)
-        messages.key.id = m.key.id
-        messages.pushName = m.name
-        if (m.isGroup) messages.participant = m.sender
-        let msg = {
+        //m.reply(util.format(isIdMessage ? m.msg.selectedButtonId : m.msg.selectedDisplayText))
+        this.emit('chat-update', {
             ...chatUpdate,
-            messages: [proto.WebMessageInfo.fromObject(messages)],
-            type: 'append'
-        }
-        this.ev.emit('messages.upsert', msg)
+            messages: newMessagesDB([
+                this.cMod(m.chat,
+                    await this.prepareMessage(m.chat, isIdMessage ? m.msg.selectedButtonId : m.msg.selectedDisplayText, MessageType.extendedText, {
+                        contextInfo: {
+                            mentionedJid: m.msg.contextInfo && m.msg.contextInfo.mentionedJid ? m.msg.contextInfo.mentionedJid : []
+                        },
+                        ...(m.quoted ? { quoted: m.quoted.fakeObj } : {}),
+                        messageId: m.id,
+                    }),
+                    isIdMessage ? m.msg.selectedButtonId : m.msg.selectedDisplayText,
+                    m.sender
+                )
+            ])
+        })
     }
 }
