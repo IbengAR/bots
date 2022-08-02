@@ -34,7 +34,7 @@ const defaultMenu = {
 ╰❑
 ╭─❑ 「 INFO USER 」 ❑──
 │ ✾ Name: %name
-│ ✾ Status: ${premium ? 'Premium' : 'Free'}
+│ ✾ Status:--
 │ ✾ Limit: %limit
 │ ✾ Money: %money
 │ ✾ Exp: %totalexp
