@@ -3,7 +3,7 @@ async function handler(m) {
                 let vcard = 'BEGIN:VCARD\n' // metadata of the contact card
                     + 'VERSION:3.0\n'
                     + 'Rizky iBeng\n' // full name
-                    + 'TEL;type=CELL;type=VOICE;waid=081257172080:+62 895-0339-8304\n' // WhatsApp ID + phone number
+                    + 'TEL;type=CELL;type=VOICE;waid=6281257172080 \n' // WhatsApp ID + phone number
                     + 'END:VCARD'
                 conn.sendMessage(m.chat, { contacts: { displayName: 'Rizky iBeng', contacts: [{ vcard }] } }, { quoted: m })
 }
