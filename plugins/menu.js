@@ -7,46 +7,42 @@ let tags = {
   'game': 'MENU GAME',
   'rpg': 'MENU RPG',
   'xp': 'MENU EXP',
-  'premium': 'MENU PREMIUM',
+  'cerpen': 'MENU CERITA',
   'group': 'MENU GROUP',
   'absen': 'MENU ABSEN',
   'vote': 'MENU VOTE',
   'owner': 'MENU OWNER',
   'fun': 'MENU FUN',
   'sticker': 'MENU STICKER',
-  'maker': 'MENU MAKER',
+  'bucin': 'MENU BUCIN',
   'github': 'MENU GITHUB',
   'internet': 'INTERNET',
-  'kerang': 'MENU KERANG',
+  'islam': 'MENU ISLAM',
   'anime': 'MENU ANIME',
   'downloader': 'DOWNLOADER',
-  'nsfw': 'MENU NSFW',
+  'nsfw': 'MENU DEWASA',
   'tools': 'MENU TOOLS',
-  'advanced': 'ADVANCED',
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
 const defaultMenu = {
   before: `
-╭─❑「 %me 」❑──
-│ Version: %version
-│ Library: Baileys-MD
-│ Mode: ${global.opts['self'] ? 'Self' : 'priv8'}
-│ Runtime: %uptime
+╭────ꕥ 「 %me 」ꕥ────
+│✾ Version: %version
+│✾ Mode: ${global.opts['self'] ? 'Self' : 'Private'}
+│✾ Runtime: %uptime
 ╰❑
 ╭─❑ 「 INFO USER 」 ❑──
-│ Name: %name
-│ Status: ---
-│ Limit: %limit
-│ Money: %money
-│ Exp: %totalexp
-│ Level: %level
-│ Role: %role
+│ ✾ Name: %name
+│ ✾ Status: --
+│ ✾ Limit: %limit
+│ ✾ Money: %money
+│ ✾ Exp: %totalexp
+│ ✾ Level: %level
+│ ✾ Role: %role
 ╰❑
 ╭─❑ 「 INFORMASI 」 ❑──
-│ Bot ini masih tahap beta
-│ apabila ada bug/eror harap
-│ lapor ke owner
+│ FITURES UPDATE NEW 
 ╰❑
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
@@ -122,7 +118,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let header = conn.menu.header || defaultMenu.header
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
-    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/${global.conn.user.jid.split`@`[0]}`) + defaultMenu.after
+    let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : `Powered by https://wa.me/6281257172080${global.conn.user.jid.split`@`[0]}`) + defaultMenu.after
     let _text = [
       before,
       ...Object.keys(tags).map(tag => {
@@ -173,21 +169,21 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            },
              {
              quickReplyButton: {
-               displayText: 'Owner',
+               displayText: '',
                id: '.owner',
              }
 
            },
                {
              quickReplyButton: {
-               displayText: 'Donasi',
+               displayText: '',
                id: '.donasi',
              }
 
            },
            {
              quickReplyButton: {
-               displayText: 'Credits',
+               displayText: '',
                id: '.tqto',
              }
            }]
@@ -230,4 +226,21 @@ function clockString(ms) {
   let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+}
+function ucapan() {
+  const time = moment.tz('Asia/Jakarta').format('HH')
+  res = "Selamat dinihari ~BOT"
+  if (time >= 4) {
+    res = "Selamat pagi ~BOT"
+  }
+  if (time > 10) {
+    res = "Selamat siang ~BOT"
+  }
+  if (time >= 15) {
+    res = "Selamat sore ~BOT"
+  }
+  if (time >= 18) {
+    res = "Selamat malam ~BOT"
+  }
+  return res
 }
