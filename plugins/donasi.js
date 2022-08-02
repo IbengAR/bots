@@ -3,29 +3,45 @@
  * MENDING KALIAN TAMBAHIN NOMOR KALIAN
 */
 
-const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@danielteodoro/baileys-md')
+const { default: makeWASocket, BufferJSON, WA_DEFAULT_EPHEMERAL, generateWAMessageFromContent, downloadContentFromMessage, downloadHistory, proto, getMessage, generateWAMessageContent, prepareWAMessageMedia } = require('@adiwajshing/baileys')
 let handler = async (m) => {
-let duit = `*───── 「 DONATE 」 ─────*
-*alo om, jangan lupa donasi agar bot lebih berkembang ya om:v*
-*mau donasi berapa pun saya bersyukur om:v*
-*───── 「 PAYMENT 」 ─────*
- • *Dana:* 081257172080 a/n iBeng
-• *Ovo:* 081257172080
-────────────────────
-*hubungi owner jika sudah berdonasi*
-http://wa.me/6281257172080?text=assalamualaikum+bang
-────────────────────`
-let message = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/3983334cd235e3c3bb237.jpg' }}, { upload: conn.waUploadToServer })
+let duit = `*────── 「 DONATE 」 ──────*
+
+Hai 👋
+Kalian bisa mendukung saya agar bot ini tetap up to date dengan:
+┌〔 Donasi • Emoney 〕
+├🏧 081351047727 (OVO/Dana/GoPay)
+├📍 https://saweria.co/ilmanhdyt
+└────
+Berapapun donasi kalian akan sangat berarti 👍
+
+Arigatou!
+
+Contact person Owner:
+wa.me/6181351047727 (Owner)`
+let message = await prepareWAMessageMedia({ image: {url: 'https://telegra.ph/file/ca517a39ce85c8a4c0479.jpg' }}, { upload: conn.waUploadToServer })
      const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
          hydratedTemplate: {
            imageMessage: message.imageMessage,
            hydratedContentText: duit,
            hydratedFooterText: wm,
-           hydratedButtons: [
-              {
+           hydratedButtons: [{
+             urlButton: {
+               displayText: '🏧 Saweria',
+               url: 'https://saweria.co/ilmanhdyt'
+             }
+
+           },
+               {
+             callButton: {
+               displayText: 'Telkomsel',
+               phoneNumber: '+62 813-5104-7727'
+             }
+           },           
+               {
              quickReplyButton: {
-               displayText: 'Owner',
+               displayText: '🧒 Owner',
                id: '.owner',
              }
 
