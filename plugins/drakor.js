@@ -12,7 +12,7 @@ if (pp) conn.sendFile(m.chat, pp, 'pp.jpg', caption, m)
 })
 }
 handler.help = ['drakor <judul>']
-handler.tags = ['internet']
+handler.tags = ['streaming']
 handler.command = /^(drakor)$/i
 handler.register = true
 
