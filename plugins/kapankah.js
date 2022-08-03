@@ -9,7 +9,7 @@ let handler = async (m, { conn, text }) => {
   } : {})
 }
 handler.help = ['', 'kah'].map(v => 'kapan' + v + ' <teks>?')
-handler.tags = ['kerang']
+handler.tags = ['game']
 handler.command = /^kapan(kah)?$/i
 handler.owner = false
 handler.mods = false
