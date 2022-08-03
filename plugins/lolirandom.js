@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 `.trim(), m)
 }
 handler.help = ['lolirandom']
-handler.tags = ['fun']
+handler.tags = ['anime']
 handler.command = /^(lolirandom)$/i
 handler.limit = true
 module.exports = handler
