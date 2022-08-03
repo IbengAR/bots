@@ -147,14 +147,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       if (!isOwner) {
         global.dfail('owner', m, conn)
         throw false
-      }
-      setting.antivirtext = isEnable
-      break
-    case 'anticall':
-      isAll = true
-      if (!isOwner) {
-        global.dfail('owner', m, conn)
-        throw false
+      
       }
       setting.anticall = isEnable
       break
@@ -186,18 +179,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
-        throw false
+        throw false   
       }
-      case 'antivirtex':
-      isAll = true
-      if (!isOwner) {
-        global.dfail('owner', m, conn)
-        throw false
-      }
-      setting.antivirtex = isEnable
-      break
-      setting.antispam = isEnable
-      break
+      
     case 'anon':
       isAll = true
       if (!isOwner) {
