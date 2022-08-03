@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, participants, usedPrefix }) => {
     conn.reply(m.chat, jawab, m, { contextInfo: { mentionedJid } })
 }
 handler.help = ['paling <teks>']
-handler.tags = ['advanced']
+handler.tags = ['bebas']
 handler.command = /^(paling)$/i
 
 handler.limit = true
