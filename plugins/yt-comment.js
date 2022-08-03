@@ -1,14 +1,14 @@
 let handler = async (m, { conn, text }) => {
-  if (!text) throw 'Uhm... teksnya mana?'
+  if (!text) throw 'No Text'
   conn.sendFile(m.chat, global.API('https://some-random-api.ml', '/canvas/youtube-comment', {
-    avatar: await conn.profilePictureUrl(m.sender).catch(_ => ''),
+    avatar: await conn.getProfilePicture(m.sender).catch(_ => ''),
     comment: text,
-    username: m.pushName
-  }), 'yt-comment.png', 'Here is your comment', m)
+    username: conn.getName(m.sender)
+  }), 'file.png', '', m, 0, { thumbnail: Buffer.alloc(0) })
 }
 
-handler.help = ['ytcomment <comment>']
-handler.tags = ['internet']
+handler.help = ['ytcomment <komen>']
+handler.tags = ['maker']
 
 handler.command = /^(ytcomment)$/i
 
