@@ -22,7 +22,7 @@ Canvacord.Canvas.facepalm(image)
   }
 }
 handler.help = ['facewibu']
-handler.tags = ['anime']
+handler.tags = ['admin']
 handler.command = /^facewibu$/i
 handler.owner = false
 handler.mods = false
