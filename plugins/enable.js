@@ -142,13 +142,13 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       }
       setting.groupOnly = isEnable
       break
-    case 'backup':
+    case 'antivirtext':
       isAll = true
       if (!isOwner) {
         global.dfail('owner', m, conn)
         throw false
       }
-      setting.backup = isEnable
+      setting.antivirtext = isEnable
       break
     case 'anticall':
       isAll = true
@@ -188,6 +188,14 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
         global.dfail('owner', m, conn)
         throw false
       }
+      case 'antivirtex':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      setting.antivirtex = isEnable
+      break
       setting.antispam = isEnable
       break
     case 'anon':
@@ -227,7 +235,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       break
     default:
       if (!/[01]/.test(command)) throw `
-┌〔 Daftar Opsi 〕${isOwner ? '\n├ anon\n├ antispam\n├ antitroli\n├ autoread\n├ backup\n├ clear\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ mycontact' : ''}
+┌〔 Daftar Opsi 〕${isOwner ? '\n├ anon\n├ antispam\n├ antitroli\n├ autoread\n├ backup\n├ clear\n├ grouponly\n├ jadibot\n├ nsfw\n├ public\n├ mycontact\n├ antivirtext\n├ antivirtex\n├ : ''}
 ├ antilink
 ├ autolevelup
 ├ delete
