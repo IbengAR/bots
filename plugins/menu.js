@@ -13,7 +13,6 @@ let tags = {
   'vote': 'MENU VOTE',
   'owner': 'MENU OWNER',
   'fun': 'MENU LOLI',
-  'advanced': 'MENU BEBAS',
   'sticker': 'MENU STICKER',
   'bucin': 'MENU BUCIN',
   'github': 'MENU GITHUB',
